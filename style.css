@@ -1,0 +1,38 @@
+#game div {
+  position: relative;
+  margin: 1px;
+  display: inline-block;
+}
+
+
+/* Card default state */
+#game div {
+  transition: transform 0.8s; /* This will smooth out the transform effect over 0.8 seconds */
+  transform-style: preserve-3d; /* Preserves the 3D effect */
+}
+
+/* Card clicked state */
+#game div.rotated {
+  transform: rotateY(180deg); /* 180-degree rotation around the Y-axis */
+}
+
+body{
+  background-image: url("modern.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;  /* This makes the body take the full height of the viewport. */
+  margin: 0;  /* This removes any default margin. */
+}
+
+#game {
+  /* Add any specific styles for the game container here. */
+  width: 100%; /* or whatever width you desire */
+  max-width: 600px; /* or your desired maximum width */
+}
+
