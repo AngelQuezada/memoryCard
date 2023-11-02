@@ -11,7 +11,6 @@ const COLORS = [
   "cyan",
 ];
 
-
 function shuffle(array) {
   let counter = array.length;
   while (counter > 0) {
@@ -33,8 +32,6 @@ function createDivsForColors(colorArray) {
 
     // Set the background image for each card
     newDiv.style.backgroundImage = 'url("light.jpg")';
-    newDiv.style.width = "150px"; 
-    newDiv.style.height = "150px";
     newDiv.style.backgroundSize = "cover";
     newDiv.style.backgroundPosition = "center";
 
@@ -60,7 +57,6 @@ function handleCardClick(event) {
   event.target.style.backgroundColor = color;
   event.target.classList.toggle('rotated');
 
-
   if (cardArray.length === 2) {
     isProcessing = true;
     if (cardArray[0].style.backgroundColor === cardArray[1].style.backgroundColor) {
@@ -70,7 +66,8 @@ function handleCardClick(event) {
 
       const totalCards = gameContainer.children.length;
       if (matchedPair === totalCards / 2) {
-        winningMessage.style.display = 'block';
+        // Show the Bootstrap modal
+        $('#gameOverModal').modal('show');
       }
       isProcessing = false;
 
@@ -88,10 +85,10 @@ function handleCardClick(event) {
   }
 }
 
-const winningMessage = document.querySelector('#winMessage');
-const button = document.querySelector('button');
+// Event listener for the "Restart" button inside the Bootstrap modal
+const buttonModal = document.getElementById("restartButtonModal");
 
-button.addEventListener('click', function(e){
+buttonModal.addEventListener('click', function(e){
   cardArray.length = 0;
   matchedPair = 0;
 
@@ -102,7 +99,8 @@ button.addEventListener('click', function(e){
     card.style.pointerEvents = 'auto';
   });
 
-  winningMessage.style.display = 'none';
+  // Hide the Bootstrap modal
+  $('#gameOverModal').modal('hide');
 });
 
 // when the DOM loads

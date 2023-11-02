@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memory Game!</title>
     <link rel="stylesheet" href="style.css" />
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
@@ -10,11 +11,28 @@
   <body>
     <div id="game">
     </div>
-    <div id="winMessage" style="display: none;">
-      Game Over. Winning!
-      <button id="restartButton">Restart</button>
+<!-- Game Over Modal -->
+<div class="modal fade" id="gameOverModal" tabindex="-1" aria-labelledby="gameOverModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="gameOverModalLabel">Game Over</h5>
+      </div>
+      <div class="modal-body">
+        You've won! Congratulations!
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="restartButtonModal">Restart</button>
+      </div>
     </div>
+  </div>
+</div>
+
     
     <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
   </body>
 </html>

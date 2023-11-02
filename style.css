@@ -1,38 +1,63 @@
+/* Game container */
+#game {
+  position: relative;
+  width: 100%; 
+  max-width: 600px;
+}
+
+/* Game cards */
 #game div {
   position: relative;
   margin: 1px;
   display: inline-block;
+  width: calc(25% - 2px);  /* 4 cards per row, adjust as needed */
+  height: calc(15vw - 2px);  /* Keeps aspect ratio */
+  transition: transform 0.8s; /* Smooth transform effect */
+  transform-style: preserve-3d; /* 3D effect */
 }
 
-
-/* Card default state */
-#game div {
-  transition: transform 0.8s; /* This will smooth out the transform effect over 0.8 seconds */
-  transform-style: preserve-3d; /* Preserves the 3D effect */
-}
-
-/* Card clicked state */
+/* Card click effect */
 #game div.rotated {
-  transform: rotateY(180deg); /* 180-degree rotation around the Y-axis */
+  transform: rotateY(180deg);  /* 180-degree rotation */
 }
 
-body{
+/* Body styles */
+body {
   background-image: url("modern.jpg");
   background-position: center;
   background-size: cover;
-}
-
-body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;  /* This makes the body take the full height of the viewport. */
-  margin: 0;  /* This removes any default margin. */
+  height: 100vh;
+  margin: 0;
 }
 
-#game {
-  /* Add any specific styles for the game container here. */
-  width: 100%; /* or whatever width you desire */
-  max-width: 600px; /* or your desired maximum width */
+/* Winning message */
+#winMessage {
+  font-size: 1.2em;  /* Adjust as needed */
 }
 
+/* Mobile styles */
+@media only screen and (max-width: 768px) {
+  #game div {
+    position: relative;
+    transition: transform 0.8s; /* Smooth transform effect */
+    transform-style: preserve-3d;
+    margin: 1px;
+    display: inline-block;
+    width: calc(30% - 1px);  /* 2 cards per row on mobile */
+    height: calc(50vw - 1px);  /* Keeps aspect ratio */
+  }
+
+  #game {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;  /* Horizontally center the items */
+    align-items: center;  /* Vertically center the items */
+  }
+
+  #winMessage {
+    font-size: 1em;  /* Smaller text for mobile */
+  }
+}
